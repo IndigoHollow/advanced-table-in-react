@@ -1,3 +1,5 @@
 # advanced-table-in-react
 
-Just a table with an ability to remove rows
+A table with an ability to add & remove rows
+
+DEMO: https://jz8r8n0wxy.codesandbox.io/
