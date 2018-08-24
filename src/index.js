@@ -1,29 +1,13 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Table from "./components/table";
+import Form from "./components/form";
 
 import "./styles.css";
 
 class App extends Component {
   state = {
-    characters: [
-      {
-        name: "Charlie",
-        job: "Janitor"
-      },
-      {
-        name: "Mac",
-        job: "Bouncer"
-      },
-      {
-        name: "Dee",
-        job: "Aspring actress"
-      },
-      {
-        name: "Dennis",
-        job: "Bartender"
-      }
-    ]
+    characters: []
   };
 
   removeCharacter = index => {
@@ -34,6 +18,10 @@ class App extends Component {
     });
   };
 
+  handleSubmit = character => {
+    this.setState({ characters: [...this.state.characters, character] });
+  };
+
   render() {
     return (
       <div className="container">
@@ -41,6 +29,9 @@ class App extends Component {
           characterData={this.state.characters}
           removeCharacter={this.removeCharacter}
         />
+        <br />
+        <div>Add new person:</div>
+        <Form handleSubmit={this.handleSubmit} />
       </div>
     );
   }
