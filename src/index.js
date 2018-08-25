@@ -2,12 +2,20 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Table from "./components/table";
 import Form from "./components/form";
-
 import "./styles.css";
 
 class App extends Component {
   state = {
-    characters: []
+    characters: [
+      {
+        name: "Test1",
+        job: "programmer"
+      },
+      {
+        name: "Test2",
+        job: "cashier"
+      }
+    ]
   };
 
   removeCharacter = index => {
