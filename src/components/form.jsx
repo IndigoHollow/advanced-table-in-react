@@ -20,8 +20,10 @@ export default class Form extends Component {
   };
 
   submitForm = () => {
-    // вызов обработчика добавления записи с параметром
-    this.props.handleSubmit(this.state);
+    // если данные ввели => вызов обработчика добавления записи с параметром
+    !this.state.name || !this.state.job
+      ? console.log("enter some data")
+      : this.props.handleSubmit(this.state);
     // очистка состояния после добавления записи
     this.clearState();
   };
