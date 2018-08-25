@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 
 export default class Form extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: "",
-      job: ""
-    };
-  }
+  state = {
+    name: "",
+    job: ""
+  };
 
   handleChange = e => {
     this.setState({
@@ -16,16 +12,18 @@ export default class Form extends Component {
     });
   };
 
+  clearState = () => {
+    this.setState({
+      name: "",
+      job: ""
+    });
+  };
+
   submitForm = () => {
     // вызов обработчика добавления записи с параметром
     this.props.handleSubmit(this.state);
     // очистка состояния после добавления записи
-    this.setState(
-      (this.state: {
-        name: "",
-        job: ""
-      })
-    );
+    this.clearState();
   };
 
   render() {
