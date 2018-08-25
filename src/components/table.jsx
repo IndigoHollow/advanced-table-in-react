@@ -19,7 +19,13 @@ const TableBody = props => {
         <td>{item.name}</td>
         <td>{item.job}</td>
         <td>
-          <button onClick={() => props.removeCharacter(index)}>Remove</button>
+          <button
+            onClick={() => {
+              props.removeCharacter(index);
+            }}
+          >
+            Remove
+          </button>
         </td>
       </tr>
     );
@@ -28,7 +34,7 @@ const TableBody = props => {
   return <tbody>{rows}</tbody>;
 };
 
-class Table extends React.Component {
+export default class Table extends React.Component {
   render() {
     return (
       <table>
@@ -41,5 +47,3 @@ class Table extends React.Component {
     );
   }
 }
-
-export default Table;
