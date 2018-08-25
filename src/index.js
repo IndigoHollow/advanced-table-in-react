@@ -6,7 +6,7 @@ import "./styles.css";
 
 class App extends Component {
   state = {
-    characters: [
+    defaultdata: [
       {
         name: "Test1",
         job: "programmer"
@@ -15,7 +15,8 @@ class App extends Component {
         name: "Test2",
         job: "cashier"
       }
-    ]
+    ],
+    characters: []
   };
 
   removeCharacter = index => {
@@ -30,6 +31,10 @@ class App extends Component {
     this.setState({ characters: [...this.state.characters, character] });
   };
 
+  loadDefault = () => {
+    this.setState({ characters: this.state.defaultdata });
+  };
+
   render() {
     return (
       <div className="container">
@@ -40,6 +45,13 @@ class App extends Component {
         <br />
         <div>Add new person:</div>
         <Form handleSubmit={this.handleSubmit} />
+        <br />
+        <br />
+        <input
+          type="button"
+          value="Load default data"
+          onClick={this.loadDefault}
+        />
       </div>
     );
   }
